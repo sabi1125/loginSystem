@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% block css %}
-    <link rel="stylesheet" href="/style/style.css">
+    <link rel="stylesheet" href="/loginsystem/style/style.css">
     {% endblock css %}
     <title>Mainpage</title>
 </head>
@@ -14,12 +14,19 @@
     <nav>
     {% block navbar %}
     <ul>
-    <li><a href="About">About</a></li>
+    <li><a href="/loginsystem/handlers/about.php">About</a></li>
     <li><a href="Login">Login</a></li>
     <li><a href="Signup">Signup</a></li>
     </ul>
     {% endblock navbar %}
     </nav>
+
+    <article>
+    {% block article%}
+    {% endblock article%}
+    </article>
+
+
 </main>
 
 </body>
