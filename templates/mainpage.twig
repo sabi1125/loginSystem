@@ -11,21 +11,21 @@
 <body>
 
 <main>
-    <nav>
-    {% block navbar %}
-    <ul>
-    <li><a href="/handlers/about.php">About</a></li>
-    <li><a href="Login">Login</a></li>
-    <li><a href="Signup">Signup</a></li>
-    </ul>
-    {% endblock navbar %}
-    </nav>
 
-    <article>
-    {% block article%}
-    {% endblock article%}
-    </article>
+{% block main %}
 
+<h1>Authenticate</h1>
+<div class="line"></div>
+<p>Secure way to Login to almost anything</p>
+
+<div id="links">
+<a href="/handlers/signup.php">Signup</a>
+
+<a href="/handlers/login.php">Login</a>
+</div>
+
+
+{% endblock main %}
 
 </main>
 
