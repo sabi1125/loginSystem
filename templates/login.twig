@@ -1,0 +1,30 @@
+{% extends "mainpage.twig" %}
+
+{% block css %}
+    <link rel="stylesheet" href="/style/style.css">
+{% endblock css %}
+{% block main %}
+
+<div id="login">
+
+<form action="" method="post">
+<h2>Login</h2>
+
+<label>
+Username
+</label>
+<br>
+<input type="text" name="username" placeholder="Enter your Username">
+<br>
+<label>
+Password
+</label>
+<br>
+<input type="password" name="password" placeholder="Enter your Password">
+<br>
+<button name="submit" type="submit">Login</button>
+</form>
+
+</div>
+
+{% endblock main %}
