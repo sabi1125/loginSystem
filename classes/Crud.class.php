@@ -88,7 +88,6 @@ public function Token(){
                 $stmt->execute($objects);
                    
             $mail = new PHPMailer;
-            $mail->isSMTP();
             $mail->Host = "smtp.gmail.com";
             $mail->Port= 587;
             $mail->SMTPAuth=true;
@@ -100,7 +99,7 @@ public function Token(){
             $mail->addReplyTo("no@reply");
             $mail->isHTML(true);
             $mail->Subject="test";
-            $mail->Body="Thank you for using Authenticate you can authenticate your account by clicking <a href='localhost/loginsystem/handlers/verification.php?t=$token&&i=$id'>here</a>";
+            $mail->Body="Thank you for using Authenticate you can authenticate your account by clicking <a href='https://login-system1125.herokuapp.com/handlers/verification.php?t=$token&&i=$id'>here</a>";
             if(!$mail->send()){
                 return false;
             }else{

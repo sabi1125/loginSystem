@@ -31,17 +31,6 @@ if(isset($_POST["login"])){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 $fullurl="http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
 if(strpos($fullurl,"msg=verified")==true){
