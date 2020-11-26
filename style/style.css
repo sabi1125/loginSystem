@@ -5,6 +5,8 @@
 :root{
     font-family: sans-serif;
     --button-primary:#15616D;
+    --success:#4a934a;
+    --error:#f25c54;
 }
 main{
     width: 100%;
@@ -132,4 +134,14 @@ form label{
 
 #login{
     width: 30%;
+}
+.msg{
+    color: var(--success);
+    font-size: 1em;
+    padding: 2em;
+}
+.err{
+    color: var(--error);
+    font-size: 1em;
+    padding: 2em;
 }

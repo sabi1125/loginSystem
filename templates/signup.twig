@@ -6,6 +6,7 @@
     {% endblock css %}
 
 {% block main %}
+
 <div id="signup">
 
 <div id="left">
@@ -14,6 +15,11 @@
 <div id="right">
 <form action="/handlers/signup.php" method="post">
 <h2>Signup</h2>
+{% if msg.status == true %}
+<h3 class="msg">{{msg.msg}}</h3>
+{% elseif err.status == true %}
+<h3 class="err>{{err.err}}</h3>
+{% endif %}
 <div class="inputs">
 <label>
 Username

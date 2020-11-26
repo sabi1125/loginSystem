@@ -7,8 +7,22 @@
 
 <div id="login">
 
-<form action="" method="post">
+<form action="/handlers/login.php" method="post">
+
+
 <h2>Login</h2>
+
+
+{% if msg.status == true %}
+
+<h3 class="msg">{{msg.msg}}</h3>
+
+{% elseif err.status == true %}
+
+<h3 class="err">{{err.err}}</h3>
+
+{% endif %}
+
 
 <label>
 Username
@@ -22,7 +36,7 @@ Password
 <br>
 <input type="password" name="password" placeholder="Enter your Password">
 <br>
-<button name="submit" type="submit">Login</button>
+<button name="login" type="submit">Login</button>
 </form>
 
 </div>
