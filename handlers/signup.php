@@ -1,9 +1,6 @@
 <?php
 include_once "../bootstrap.php";
 include_once "../classes/Crud.class.php";
-require "../classes/phpmailer.class.php";
-require "../classes/smtp.class.php";
-
 if(isset($_POST["submit"])){
     $username = $_POST["username"];
     $email = $_POST["email"];
@@ -15,16 +12,9 @@ if(isset($_POST["submit"])){
         header("location:signup.php?err=empty");
     }else{
         $create = new Crud();
-        if($create->create($username,$email,$hashPass)){
+        $create->create($username,$email,$hashPass);
             
-        if($create->storeToken($email)){
-            header("location:signup.php?msg=sent");
-        }else{
-            header("location:signup.php?err=notsent");
-        }
-        }else{
-            header("location:signup.php?err=alreadyexists");
-        }
+       
 
            
     }
