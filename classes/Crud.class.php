@@ -88,11 +88,10 @@ public function Token(){
                 $stmt->execute($objects);
                    
             $mail = new PHPMailer;
-            $mail->isSMTP();
             $mail->Host = "smtp.gmail.com";
             $mail->Port= 587;
             $mail->SMTPAuth=true;
-            $mail->SMTPSecure="tls";
+            $mail->SMTPSecure="ssl";
             $mail->Username="sabirbarahi41@gmail.com";
             $mail->Password="dragon-force99";
             $mail->setFrom("sabirbarahi41@gmail.com","test@noreply");
