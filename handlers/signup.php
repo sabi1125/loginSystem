@@ -12,10 +12,12 @@ if(isset($_POST["submit"])){
         header("location:signup.php?err=empty");
     }else{
         $create = new Crud();
-        $create->create($username,$email,$hashPass);
-            
-       
+        if($create->create($username,$email,$hashPass)){
+            header("location:signup.php?msg=success");
+        }else{
+            header("location:signup.php?err=alreadyexists");
 
+        }
            
     }
 }
@@ -24,20 +26,22 @@ if(isset($_POST["submit"])){
 
 $fullurl="http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
-if(strpos($fullurl,"msg=sent")==true){
+if(strpos($fullurl,"msg=success")==true){
 
     $msg=[
      "status"=>true,
-     "msg"=>"Your account has been scuccesfully created please visit your email to activate your account."
+     "msg"=>"Your account has been scuccesfully created."
     ];
 echo $twig->render("signup.twig",["msg"=>$msg]);
 
-}else if(strpos($fullurl,"err=notsent")==true){
+}else if(strpos($fullurl,"err=empty")==true){
+
     $err=[
-    "status"=>true,
-    "err"=>"We could not setup your account for some reason remaking a new account might help"
+     "status"=>true,
+     "err"=>"Cannot submit an empty form."
     ];
-    echo $twig->render("signup.twig",["err"=>$err]);
+echo $twig->render("signup.twig",["err"=>$err]);
+
 }else if(strpos($fullurl,"err=alreadyexists")== true){
     $err=[
         "status"=>true,

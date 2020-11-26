@@ -65,8 +65,18 @@ main #links a{
     height: 500px;
     border-right: 1px solid #3D3B3B;
     display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
     padding: 20px;
+}
+#signup #left a{
+    color:#3D3B3B;
+    text-decoration: black;
+    font-size: 1.3em;
+    font-weight: lighter;
+    font-style: italic;
+
 }
 #signup #right{
     height: 500px;

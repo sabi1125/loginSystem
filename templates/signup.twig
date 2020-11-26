@@ -11,6 +11,7 @@
 
 <div id="left">
 <h1>Authenticate</h1>
+<a href="/handlers/login.php">Login</a>
 </div>
 <div id="right">
 <form action="/handlers/signup.php" method="post">
@@ -18,7 +19,7 @@
 {% if msg.status == true %}
 <h3 class="msg">{{msg.msg}}</h3>
 {% elseif err.status == true %}
-<h3 class="err>{{err.err}}</h3>
+<h3 class="err">{{err.err}}</h3>
 {% endif %}
 <div class="inputs">
 <label>
@@ -40,6 +41,8 @@ Password
 <input type="password" name="password" placeholder="Enter a Password">
 <br>
 <button type="submit" name="submit">Signup</button>
+<br>
+
 </div>
 </form>
 </div>

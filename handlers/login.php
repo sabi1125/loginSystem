@@ -15,8 +15,6 @@ if(isset($_POST["login"])){
         header("location:login.php?err=empty");
     }else{
         $login = new Crud;
-        var_dump($login->login($username,$password));
-        exit();
         if($login->login($username,$password)){
             header("location:loggedin.php");
         }else{

@@ -46,8 +46,9 @@ class Crud extends db{
                 $sql = "select * from users where username=:username";
                 $stmt=$this->connect()->prepare($sql);
                 $stmt->execute(["username"=>$username]);
-                $row=$stmt->rowCount();
+                $count=$stmt->rowCount();
                 if($count>0){
+                    $row=$stmt->fetch();
                     $hash = password_verify($password,$row["password"]);
                     if($hash){
                         $_SESSION["id"]=$row["id"];
