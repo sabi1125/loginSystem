@@ -50,6 +50,7 @@ main #links a{
 }
 
 
+
 #signup {
     width: 100%;
     height: 100vh;
@@ -157,7 +158,39 @@ form label{
 }
 .para{
     width: 50%;
-    font-size: 1em;
-    font-weight: light;
-    text-align: end;
+    font-size:0.7em;
+    font-weight: lighter;
+    text-align: center;
+    margin-top: 100px;
+}
+
+@media(max-width:960px){
+    main h1{
+        font-size: 3em;
+    }
+    main .line{
+        width: 300px;
+    }
+    main p{
+        font-size:1em;
+    }
+    .para{
+        width: 90%;
+        font-size: 0.9em;
+    }
+    #signup{
+        display: flex;
+        flex-direction: column;
+    }
+    #signup #left{
+        border-right: none;
+    }
+    #signup #right{
+        width: 90%;
+    }
+    #login{
+        width: 90%;
+    }
+    
+   
 }
