@@ -43,27 +43,23 @@ class Crud extends db{
 
 
             public function login($username,$password){
-
-                $sql = "select * from users where username = :username";
+                $sql = "select * from users where username=:username";
                 $stmt=$this->connect()->prepare($sql);
                 $stmt->execute(["username"=>$username]);
-                $count = $stmt->rowCount();
-
+                $row=$stmt->rowCount();
                 if($count>0){
-                   
-                        $hash = password_verify($password,$row["password"]);
-                        if($hash == true){
-                            $_SESSION["username"]= $row["username"];
-                            $_SESSION["id"]=$row["id"];
+                    $hash = password_verify($password,$row["password"]);
+                    if($hash){
+                        $_SESSION["id"]=$row["id"];
+                        $_SESSION["username"]=$row["username"];
                         return true;
-                        }else{
-                         return false;
+                    }else{
+                        return false;
                     }
                 }else{
-                   return false;
+                    return false;
                 }
-
-
+            
             }
 
             
