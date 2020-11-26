@@ -33,17 +33,10 @@ if(isset($_POST["login"])){
 
 $fullurl="http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
- if(strpos($fullurl,"err=invalid")==true){
+ if(strpos($fullurl,"err=error")==true){
     $err=[
         "status"=>true,
-        "err"=>"humm... That is an invalid token....."
-       ];
-   echo $twig->render("login.twig",["err"=>$err]);
-   
-}else if(strpos($fullurl,"err=error")==true){
-    $err=[
-        "status"=>true,
-        "err"=>"Wrong Username or Password.Or maybe you havent verified your account yet. If so please check your email."
+        "err"=>"Wrong Username or Password"
        ];
    echo $twig->render("login.twig",["err"=>$err]);
    
