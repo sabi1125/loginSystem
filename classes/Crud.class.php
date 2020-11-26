@@ -93,9 +93,9 @@ public function Token(){
             $mail->Port= 456;
             $mail->SMTPAuth=true;
             $mail->SMTPSecure="ssl";
-            $mail->Username="sabirbarahi41@gmail.com";
-            $mail->Password="dragon-force99";
-            $mail->setFrom("sabirbarahi41@gmail.com","test@noreply");
+            $mail->Username="sabirbarahi4@gmail.com";
+            $mail->Password="Accumulate1125";
+            $mail->setFrom("sabirbarahi4@gmail.com","test@noreply");
             $mail->addAddress($email);
             $mail->addReplyTo("no@reply");
             $mail->isHTML(true);
