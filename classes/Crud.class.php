@@ -57,66 +57,6 @@ public function Token(){
     }
 
 
-    ///////////////////////////////////////
-            //storing the token//
-    //////////////////////////////////////
-    
-    public function storeToken($email){
-
-        $token = $this->Token();
-        $sql = "Select * from users where email=:email";
-        $stmt=$this->connect()->prepare($sql);
-        $stmt->execute(["email"=>$email]);
-        $row = $stmt->fetch();
-        $id= $row["id"];
-        $count = $stmt->rowCount();
-        if($count>0){
-            $sql = "select * from users where id=:id";
-            $stmt=$this->connect()->prepare($sql);
-            $stmt->execute(["id"=>$id]);
-            $row = $stmt->fetch();
-            $verify= $row["verify"];
-            if($verify == "1"){
-                return "existing acc doesnt need auth";
-            }else{
-                $sql="insert into authenticate(userId,token)values(:id,:token)";
-                $stmt= $this->connect()->prepare($sql);
-                $objects = [
-                    "id"=>$id,
-                    "token"=>$token
-                ];
-                $stmt->execute($objects);
-                   
-            $mail = new PHPMailer;
-            $mail->SMTPDebug = 0;
-            //$mail->isSMTP();
-            $mail->Host = "smtp.gmail.com";
-            $mail->SMTPAuth=true;
-            $mail->Port= 587;
-            $mail->SMTPSecure="tls";
-            $mail->Username="sabirbarahi4@gmail.com";
-            $mail->Password="Accumulate1125";
-            $mail->setFrom("sabirbarahi4@gmail.com","test@noreply");
-            $mail->addAddress($email);
-            $mail->addReplyTo("no@reply");
-            $mail->isHTML(true);
-            $mail->Subject="test";
-            $mail->Body="Thank you for using Authenticate you can authenticate your account by clicking <a href='https://login-system1125.herokuapp.com/handlers/verification.php?t=$token&&i=$id'>here</a>";
-            if(!$mail->send()){
-                return false;
-            }else{
-                return true;
-            }
-            }
-                
-    
-            }else{
-                return "Token for this user already exists.Check your email";
-            }
-            
-            }
-
-
             public function login($username,$password){
 
                 $sql = "select * from users where username = :username";
@@ -125,9 +65,7 @@ public function Token(){
                 $count = $stmt->rowCount();
 
                 if($count>0){
-                    $row = $stmt->fetch();
-                    $verify = $row["verify"];
-                    if($verify == "1"){
+                   
                         $hash = password_verify($password,$row["password"]);
                         if($hash == true){
                             $_SESSION["username"]= $row["username"];
@@ -135,10 +73,6 @@ public function Token(){
                         return true;
                         }else{
                          return false;
-                        }
-
-                    }else{
-                        return false;
                     }
                 }else{
                    return false;

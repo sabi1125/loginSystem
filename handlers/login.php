@@ -33,15 +33,7 @@ if(isset($_POST["login"])){
 
 $fullurl="http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
-if(strpos($fullurl,"msg=verified")==true){
-
-    $msg=[
-     "status"=>true,
-     "msg"=>"Your account has been scuccesfully verified.You can login form here."
-    ];
-echo $twig->render("login.twig",["msg"=>$msg]);
-
-}else if(strpos($fullurl,"err=invalid")==true){
+ if(strpos($fullurl,"err=invalid")==true){
     $err=[
         "status"=>true,
         "err"=>"humm... That is an invalid token....."
