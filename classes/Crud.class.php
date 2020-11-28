@@ -5,8 +5,6 @@ require "../vendor/PHPMailerAutoload.php";
 class Crud extends db{
 
 
-
-
 //////////////////////////////
     //creating account//
 /////////////////////////////
