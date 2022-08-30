@@ -5,15 +5,6 @@ include_once("../classes/verify.class.php");
 
 
 
-
-
-
-
-
-
-
-
-
 $recivedId=$_GET["i"];
 $recivedToken=$_GET["t"];
 
